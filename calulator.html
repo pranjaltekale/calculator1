@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pranjal</title>
+    <style>
+        .Pranjal
+        {
+            width: 329px;
+            height:480px;
+            background-color:rgb(18, 20, 22) ;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 15px;
+            padding: 5px;
+            margin-top: 70px;
+        }
+        .box
+        {
+            height: 60px;
+            width: 300px;
+            margin-left: 10px;
+            margin-top: 30px;
+            border-radius: 5px;
+            background-color: aliceblue;
+            font-size: 50px;
+        }
+        .button-row
+        {
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+        .button-cal
+        {
+            font-size: 20px;
+            height: 40px;
+            width: 60px;
+            border-radius: 10px;
+            margin-top: 7px;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+        .button-cal:hover
+        {
+            height: 42px;
+            width: 62px;
+            border-radius: 12px;
+            border: solid black 1px;
+            box-shadow: 0 0 2px white;
+            transition: 1s;
+        }
+        .calsi-name
+        {
+            color: aliceblue;
+            font-size: 20px;
+            margin-left: 245px;
+            
+
+        }
+        .special-button
+        {
+            background-color: orange;
+        }
+        .small-screen-container
+        {
+            display: flex;
+            justify-content: end;
+        }
+        .small-screen
+        {
+           height: 25px;
+           width: 25px;
+           background-color: rgb(190, 211, 204);
+           border: 1px soloid black;
+           margin-right: 15px;
+           margin-top: 5px;
+        }
+        #Enter{
+            background-color: chartreuse;
+            width: 100px;
+        }
+        #equal{
+            background-color: chartreuse;
+        }
+        #del{
+            background-color: rgb(236, 97, 11);
+        }
+        #clr
+        {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="Pranjal">
+        <p class="calsi-name ">Pranjal</p>
+        <input type="text" id="input"class="box">
+        <div class="small-screen-container">
+            <div class="small-screen"></div>
+            <div class="small-screen"></div>
+            <div class="small-screen"></div>
+        </div>
+        <div class="button-row">
+            <button class="button-cal special-button" onclick="handlekeyPress('(')">(</button>
+            <button class="button-cal special-button "onclick="handlekeyPress(')')">)</button>
+            <button  id="equal"class="button-cal special-button"onclick="handlekeyPress('=')">=</button>
+            <button id="del"class="button-cal special-button"onclick="deleteNumer('del')">del</button>
+            <button id="clr" class=" button-cal special-button"onclick="Pranjal()">Clr</button>
+
+        </div>
+        <div class="button-row">
+            <button class="button-cal" onclick="handlekeyPress('7')">7</button>
+            <button class="button-cal "onclick="handlekeyPress('8')">8</button>
+            <button class="button-cal"onclick="handlekeyPress('9')">9</button>
+            <button class="button-cal special-button"onclick="handlekeyPress('%')">%</button>
+            <button class="button-cal special-button"onclick="handlekeyPress('/')">/</button>
+
+        </div>
+        <div class="button-row">
+            <button class="button-cal"onclick="handlekeyPress('4')">4</button>
+            <button class="button-cal"onclick="handlekeyPress('5')">5</button>
+            <button class="button-cal"onclick="handlekeyPress('6')">6</button>
+            <button class="button-cal special-button"onclick="handlekeyPress('*')">X</button>
+            <button class="button-cal special-button"onclick="handlekeyPress('log')">log</button>
+            
+        </div>
+        <div class="button-row">
+            <button class="button-cal"onclick="handlekeyPress('1')">1</button>
+            <button class="button-cal"onclick="handlekeyPress('2')">2</button>
+            <button class="button-cal"onclick="handlekeyPress('3')">3</button>
+            <button class="button-cal special-button"onclick="handlekeyPress('+')">+</button>
+            <button class="button-cal special-button"onclick="handlekeyPress('-')">-</button>
+        </div>
+        
+        <div class="button-row">
+            <button class="button-cal"onclick="handlekeyPress('00')">00</button>
+            <button class="button-cal "onclick="handlekeyPress('0')">0</button>
+            <button class="button-cal "onclick="handlekeyPress('.')">.</button>
+            <button  id="Enter"class="button-cal"onclick="enter('Enter')">Enter</button>
+            
+            
+        </div>
+        
+    </div>
+    
+    <script>
+        function handlekeyPress(key)
+        {
+            const inputscreen = document.getElementById('input');
+            if(key!='=')
+            {
+            inputscreen.value +=key;
+            }
+            else
+            {
+            const result = eval(inputscreen.value);
+            inputscreen.value = result;
+            }
+        }
+        function Pranjal()
+        {
+            const inputscreen = document.getElementById('input');
+            inputscreen.value=''
+        }
+        function deleteNumer()
+        {
+            const inputscreen = document.getElementById('input');
+            inputscreen.value=inputscreen.value.slice(0,-1);
+        }
+        function enter()
+        {
+            const inputscreen = document.getElementById('input');
+            inputscreen.value=inputscreen.value.enter();
+
+        }
+    </script>
+</body>
+</html>
